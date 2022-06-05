@@ -205,14 +205,14 @@
                 	$request = mysqli_query($conn, "SELECT DISTINCT marque FROM oeuvres");
                     foreach($request as $marque){
                         $marque=$marque["marque"];
-                        $request2 = mysqli_query($conn, "SELECT * FROM oeuvres WHERE marque='$marque' ORDER BY prix LIMIT 1");
+                        $request2 = mysqli_query($conn, "SELECT * FROM oeuvres WHERE marque='$marque' ORDER BY prix DESC LIMIT 1");
                         foreach ($request2 as $bestcar) {
                             // $bestcar=$bestcar["marque"];
-                            echo "<p>";
-                            echo "<a href='affichermarque.php?marque=$marque'>$marque</a>";
+                            echo "<p style='float:left;height:50vh;margin:10px'>";
+                            echo "<a href='affichermarque.php?marque=$marque' style='text-decoration:none'>$marque</a>";
                             echo "<br/>";
                             // print_r($bestcar);
-                            echo "<img src='{$bestcar["photo"]}' alt='photo d/'une $marque'>";
+                            echo "<img src='photo/{$bestcar["photo"]}' alt='photo d/'une $marque' style='max-width: 30vw;min-width:30vw'>";
                             echo "</p>";
 
                         }
