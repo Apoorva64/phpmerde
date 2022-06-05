@@ -2,6 +2,10 @@
 -- Structure de la table `oeuvres`
 --
 
+DROP DATABASE musee;
+CREATE DATABASE musee;
+
+
 CREATE TABLE `oeuvres`
 (
     `id`     int(11)     NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Identifiant unique de l\'oeuvre',
@@ -18,7 +22,7 @@ CREATE TABLE `oeuvres`
 INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
 VALUES ('1', 'mustang', 'ford', '1967', 'car1.jpg', 40000);
 INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
-VALUES ('2', 'F40', 'Ferrari', '1950', 'car3.jpg',5000);
+VALUES ('2', 'F40', 'Ferrari', '1950', 'car3.jpg', 5000);
 
 -- --------------------------------------------------------
 
@@ -36,6 +40,20 @@ CREATE TABLE `visiteurs`
 ) ENGINE = InnoDB;
 
 
+CREATE TABLE `admin`
+(
+    `login`     varchar(50) NOT NULL,
+    `password`  varchar(50) NOT NULL,
+    `pseudo`    varchar(50),
+    `nom`       varchar(50),
+    `telephone` varchar(50),
+    `email`     varchar(50)
+);
+
+INSERT INTO `admin` (`login`, `password`, `pseudo`, `nom`, `telephone`, `email`)
+VALUES ('admin', 'admin', 'admin', 'admin', 'admin', 'admin');
+
+
 --
 -- Déchargement des données de la table `visiteurs`
 --
@@ -43,5 +61,5 @@ CREATE TABLE `visiteurs`
 INSERT INTO `visiteurs` (`pseudo`, `nom`, `telephone`, `email`, `password`)
 VALUES ('kikou', 'kiki', '95436700', 'kikou@gmail.com', '123');
 INSERT INTO `visiteurs` (`pseudo`, `nom`, `telephone`, `email`, `password`)
-VALUES  ('kik88', 'kiki', '88888', 'kiko@gmail.com', '123');
+VALUES ('kik88', 'kiki', '88888', 'kiko@gmail.com', '123');
 

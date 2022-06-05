@@ -95,7 +95,7 @@
 </body>
 <?php
     echo "   <h2>  Voila Nos voitures     </h2> ";
-    $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+    $connect =  mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
     $sqlSelect = "SELECT marque FROM oeuvres";
     $result = $connect->query($sqlSelect);
 

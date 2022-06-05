@@ -95,7 +95,7 @@
 </body>
 <?php
     echo "   <h2>  Voila Nos Produits  ( Voici certaines Produits )   </h2> ";
-    $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+    $connect =  mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
 ?>
 <?php
     echo "<form method='post'>";
@@ -160,7 +160,7 @@
     </div>
     <br>
     <?php
-        $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+        $connect =  mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
         if (isset($_POST["insert"])) {
             if (!empty($_FILES['uploaded_file'])) {
                 $photo = $_FILES['uploaded_file']['name'];

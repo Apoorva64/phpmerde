@@ -205,7 +205,7 @@
         $login = test_input($_POST['loginA']);
         $password = $_POST['passwordA'];
 
-        $req = mysqli_query($conn, "SELECT*FROM admin WHERE login='$login' and password='$password'");
+        $req = mysqli_query($conn, "SELECT * FROM admin WHERE login='$login' and password='$password'");
         $nbreadmin = mysqli_num_rows($req);
         $ligne = mysqli_fetch_row($req);
 

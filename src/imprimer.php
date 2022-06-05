@@ -9,7 +9,7 @@
 </form>
 <?php
 
-    $conn = mysqli_connect('localhost', 'root', '', 'bonnebouffe') or die ("Erreur de connexion");
+    $conn =  mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
     if (isset($_POST["recherche"])) {
         $coderecheche = $_POST["coderecheche"];
 
