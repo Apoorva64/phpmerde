@@ -13,7 +13,8 @@ CREATE TABLE `oeuvres`
     `marque` varchar(50) NOT NULL,
     `annee`  varchar(50) NOT NULL,
     `photo`  varchar(50) NOT NULL,
-    `prix`   varchar(50) NOT NULL
+    `prix`   varchar(50) NOT NULL,
+    `likes`  int(11)     DEFAULT 0
 ) ENGINE = InnoDB;
 --
 -- Déchargement des données de la table `oeuvres`

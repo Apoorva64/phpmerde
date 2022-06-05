@@ -13,36 +13,37 @@
     if (isset($_POST['code']) && $_POST['code'] != "") {
         $code = $_POST['code'];
         $con = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
-        $result = mysqli_query($con, "SELECT * FROM `oeuvres` WHERE `id`='$code'");
-        $row = mysqli_fetch_assoc($result);
-        $modele = $row['modele'];
-        $code = $row['code'];
-        $année = $row['année'];
-        $photo = $row['photo'];
+        $result = mysqli_query($con, "UPDATE oeuvres SET likes = likes + 1 WHERE id = '$code'");
+//        $row = mysqli_fetch_assoc($result);
+//        $modele = $row['modele'];
+//        $code = $row['id'];
+//        $annee = $row['annee'];
+//        $photo = $row['photo'];
+//
+//        $cartArray = array(
+//                $code => array(
+//                        'modele' => $modele,
+//                        'code' => $code,
+//                        'annee' => $annee,
+//                        'quantity' => 1,
+//                        'photo' => $photo)
+//        );
 
-        $cartArray = array(
-                $code => array(
-                        'modele' => $modele,
-                        'code' => $code,
-                        'année' => $année,
-                        'quantity' => 1,
-                        'photo' => $photo)
-        );
 
-        if (empty($_SESSION["shopping_cart"])) {
-            $_SESSION["shopping_cart"] = $cartArray;
-            $status = "<div class='box'>déja ajouté!</div>";
-        } else {
-            $array_keys = array_keys($_SESSION["shopping_cart"]);
-            if (in_array($code, $array_keys)) {
-                $status = "<div class='box' style='color:red;'>
-		voiture ajouté aux favoris!</div>";
-            } else {
-                $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"], $cartArray);
-                $status = "<div class='box'>Product is added to your cart!</div>";
-            }
-
-        }
+//        if (empty($_SESSION["shopping_cart"])) {
+//            $_SESSION["shopping_cart"] = $cartArray;
+//            $status = "<div class='box'>déja ajouté!</div>";
+//        } else {
+//            $array_keys = array_keys($_SESSION["shopping_cart"]);
+//            if (in_array($code, $array_keys)) {
+//                $status = "<div class='box' style='color:red;'>
+//		voiture ajouté aux favoris!</div>";
+//            } else {
+//                $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"], $cartArray);
+//                $status = "<div class='box'>Product is added to your cart!</div>";
+//            }
+//
+//        }
     }
 ?>
 <html>
@@ -204,7 +205,6 @@
                     <li><a href="index.php?lien=Deconnexion"> Deconnexion </a></li>
 
                 </ul>
-                ///*cart.php?lien=modifier*/
 
         </nav>
         <div style="width:700px; margin:50 auto;">
@@ -220,13 +220,14 @@
 
                 $result = mysqli_query($con, "SELECT * FROM `oeuvres`");
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<div class='product_wrapper'>
+                    echo "<div class='product_wrapper' style='padding: 90px'>
 			  <form method='post' action=''>
 			  <input type='hidden' name='code' value=" . $row['id'] . " />
 			  <img src='photo/" . $row['photo'] . "' style='height:100px;width:150px'/>
 			  <div class='nomprod' style='color:white;'>" . $row['modele'] . "</div>
 		   	  <div class='prix' style='color:white;'>" . $row['prix'] . "</div>
-			  <button type='submit' class='buy'>ajout favoris</button>
+		   	  <div class='prix' style='color:white;'>likes:" . $row['likes'] . "</div>
+			  <button type='submit' class='buy'>Like</button>
 			  </form>
 		   	  </div>";
                 }
