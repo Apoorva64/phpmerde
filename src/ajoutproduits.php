@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <style>
     h2 {
         color: white;
@@ -128,7 +133,7 @@
 
 
                             <tr>
-                                <td>Code</td>
+                                <td>annee</td>
                                 <td><input type='text' name="idrecettes" value=""></td>
                             </tr>
                             <tr>
@@ -165,7 +170,7 @@
             if (!empty($_FILES['uploaded_file'])) {
                 $photo = $_FILES['uploaded_file']['name'];
 
-                $reqinsert = mysqli_query($connect, "insert into oeuvres values('$noclient','$nomfour','$telephone','$email','$password')") or die("Erreur de requete SQL!");
+                $reqinsert = mysqli_query($connect, "INSERT INTO visiteurs VALUES('$noclient','$nomfour','$telephone','$email','$password')") or die("Erreur de requete SQL!");
 
                 $path = "photos/";
                 $path = $path . basename($_FILES['uploaded_file']['name']);
@@ -183,8 +188,8 @@
             $cout = ($_POST['cout']);
             $photo = ($_POST['uploaded_file']);
             $idmembre = ($_POST['idmembre']);
-            $insertion = mysqli_query($connect, "insert into oeuvres VALUES
-     ('$idrecettes','$nomprod','$preparation','$cout','$photo')") or die ("Erreur d'insertion");
+            $insertion = mysqli_query($connect, "insert into oeuvres (modele, marque, annee, photo, prix) VALUES
+     ('$nomprod','$preparation','$idrecettes','$photo','$cout')") or die ("Erreur d'insertion");
         }
 
     ?>

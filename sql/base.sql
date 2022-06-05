@@ -11,7 +11,7 @@ CREATE TABLE `oeuvres`
     `id`     int(11)     NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Identifiant unique de l\'oeuvre',
     `modele` varchar(50) NOT NULL,
     `marque` varchar(50) NOT NULL,
-    `année`  varchar(50) NOT NULL,
+    `annee`  varchar(50) NOT NULL,
     `photo`  varchar(50) NOT NULL,
     `prix`   varchar(50) NOT NULL
 ) ENGINE = InnoDB;
@@ -19,10 +19,38 @@ CREATE TABLE `oeuvres`
 -- Déchargement des données de la table `oeuvres`
 --
 
-INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
-VALUES ('1', 'mustang', 'ford', '1967', 'car1.jpg', 40000);
-INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
-VALUES ('2', 'F40', 'Ferrari', '1950', 'car3.jpg', 5000);
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('Mustang', 'Ford', '1967', 'car1.jpg', 100000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('Shelby Cobra', 'Ford', '1962', 'car2.jpg',300000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('F40', 'Ferrari', '1987', 'car3.jpg',2500000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('California GT', 'Ferrari', '19XX', 'car4.jpg',3000000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('911', 'Porsche', '1963', 'car5.jpg',500000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('356', 'Porsche', '1954', 'car6.jpg',600000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('SL300', 'Mercedes', '1954', 'car7.jpg',3000000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('Dolorean', 'DMC', '1976', 'car8.jpg',9999999);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('Type 57', 'Bugatti', '1933', 'car9.jpg',10000000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('DB5', 'Astom Martin', '1963', 'car10.jpg',7500000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('Miura', 'Lamborghini', '1966', 'car11.jpg',900000);
 
 -- --------------------------------------------------------
 
