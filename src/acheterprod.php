@@ -206,6 +206,10 @@ if (isset($_POST['code']) && $_POST['code'] != "") {
   <div style="width:700px; margin:50 auto;">
 
 
+            <?php
+                if (!empty($_SESSION["shopping_cart"])) {
+                    $cart_count = count(array_keys($_SESSION["shopping_cart"]));
+                    ?>
 
     <?php
     if (!empty($_SESSION["shopping_cart"])) {
