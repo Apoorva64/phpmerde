@@ -12,7 +12,8 @@
     $status = "";
     if (isset($_POST['code']) && $_POST['code'] != "") {
         $code = $_POST['code'];
-        $result = mysqli_query($con, "SELECT * FROM `oeuvres` WHERE `code`='$code'");
+        $con = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
+        $result = mysqli_query($con, "SELECT * FROM `oeuvres` WHERE `id`='$code'");
         $row = mysqli_fetch_assoc($result);
         $modele = $row['modele'];
         $code = $row['code'];
@@ -221,10 +222,10 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='product_wrapper'>
 			  <form method='post' action=''>
-			  <input type='hidden' name='code' value=" . $row['code'] . " />
+			  <input type='hidden' name='code' value=" . $row['id'] . " />
 			  <img src='photo/" . $row['photo'] . "' style='height:100px;width:150px'/>
 			  <div class='nomprod' style='color:white;'>" . $row['modele'] . "</div>
-		   	  <div class='prix' style='color:white;'>" . $row['année'] . "</div>
+		   	  <div class='prix' style='color:white;'>" . $row['prix'] . "</div>
 			  <button type='submit' class='buy'>ajout favoris</button>
 			  </form>
 		   	  </div>";

@@ -11,7 +11,7 @@ CREATE TABLE `oeuvres`
     `id`     int(11)     NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Identifiant unique de l\'oeuvre',
     `modele` varchar(50) NOT NULL,
     `marque` varchar(50) NOT NULL,
-    `année`  varchar(50) NOT NULL,
+    `annee`  varchar(50) NOT NULL,
     `photo`  varchar(50) NOT NULL,
     `prix`   varchar(50) NOT NULL
 ) ENGINE = InnoDB;
@@ -19,9 +19,9 @@ CREATE TABLE `oeuvres`
 -- Déchargement des données de la table `oeuvres`
 --
 
-INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
+INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `annee`, `photo`, `prix`)
 VALUES ('1', 'mustang', 'ford', '1967', 'car1.jpg', 40000);
-INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `année`, `photo`, `prix`)
+INSERT INTO `oeuvres` (`id`, `modele`, `marque`, `annee`, `photo`, `prix`)
 VALUES ('2', 'F40', 'Ferrari', '1950', 'car3.jpg', 5000);
 
 -- --------------------------------------------------------

@@ -4,7 +4,16 @@
     //2) connexion avec la base
     include("connexion.php");
     //3)requete de recherche
-    $reqsearch = mysqli_query($connect, "SELECT * from he_produit where code like '$recherche%'");
+    $reqsearch = mysqli_query($connect, "SELECT * FROM oeuvres WHERE oeuvres.marque LIKE '%$recherche%'
+                                                                    OR oeuvres.modele LIKE '%$recherche%'
+                                                                    OR oeuvres.prix LIKE '%$recherche%'              
+                                                                    OR oeuvres.photo LIKE '%$recherche%'       
+                                                                    OR oeuvres.annee LIKE '%$recherche%'
+");
+
+
+
+
     //4) Analyse et affichage des resultats de la recherche
     $nbresearch = mysqli_affected_rows($connect);
     if ($nbresearch > 0) {
