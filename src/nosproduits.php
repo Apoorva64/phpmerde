@@ -104,7 +104,7 @@ session_start();
 <?php
     echo "<form method='post'>";
 
-    $req3recette = mysqli_query($connect, "select * from oeuvres limit 0,5") or die ("Erreur de selection");
+    $req3recette = mysqli_query($connect, "select * from oeuvres ") or die ("Erreur de selection");
 
     echo "<table border=4px width=50%> <th>Nom</th> <th>Description</th> <th>Année</th> <th>Photo</th>";
 

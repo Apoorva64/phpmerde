@@ -105,7 +105,7 @@ session_start();
 <?php
     echo "<form method='post'>";
 
-    $req3recette = mysqli_query($connect, "SELECT * FROM oeuvres LIMIT 0,5") or die ("Erreur de selection");
+    $req3recette = mysqli_query($connect, "SELECT * FROM oeuvres ") or die ("Erreur de selection");
 
     echo "<table border=4px width=50%> <th>Nom</th> <th>Description</th> <th>Prix</th> <th>Photo</th>";
 
@@ -122,7 +122,7 @@ session_start();
 ?>
 <nobr>
 
-    <div id="ediit">
+    <div id="edit">
 
         <table>
             <tr>
@@ -197,7 +197,7 @@ session_start();
         echo "<div id='edit'>";
         echo "<form method='post'>";
 
-        $req3recette = mysqli_query($connect, "select * from oeuvres limit 0,5") or die ("Erreur de selection");
+        $req3recette = mysqli_query($connect, "select * from oeuvres ") or die ("Erreur de selection");
 
         echo "<table border=4px width=60%> <th></th> <th>Nom</th> <th>Ingredients</th> <th>Cout</th> <th>Photo</th>";
         while ($reqresultat = mysqli_fetch_row($req3recette)) {
