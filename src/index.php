@@ -201,6 +201,24 @@
                     }
                 </style>
                 <h1><i> Bienvenue Sur Le Site de votre musée de voiture de collection </i></h1>
+                <?php
+                	$request = mysqli_query($conn, "SELECT DISTINCT marque FROM oeuvres");
+                    foreach($request as $marque){
+                        $marque=$marque["marque"];
+                        $request2 = mysqli_query($conn, "SELECT * FROM oeuvres WHERE marque='$marque' ORDER BY prix LIMIT 1");
+                        foreach ($request2 as $bestcar) {
+                            // $bestcar=$bestcar["marque"];
+                            echo "<p>";
+                            echo "<a href='affichermarque.php?marque=$marque'>$marque</a>";
+                            echo "<br/>";
+                            // print_r($bestcar);
+                            echo "<img src='{$bestcar["photo"]}' alt='photo d/'une $marque'>";
+                            echo "</p>";
+
+                        }
+                        // print_r($request2);
+                    }
+                    ?>
             </center>
 
 
