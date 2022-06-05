@@ -113,7 +113,7 @@
 
             .button {
                 border-radius: 4px;
-                background-color: #silver;
+                background-color: silver;
                 border: none;
                 color: black;
                 text-align: center;

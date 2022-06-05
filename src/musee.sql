@@ -12,9 +12,9 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS = @@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
@@ -27,17 +27,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `admin`
 --
 
-CREATE TABLE `admin` (
-  `login` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `admin`
+(
+    `login`    varchar(50) NOT NULL,
+    `password` varchar(50) NOT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
 --
 -- Déchargement des données de la table `admin`
 --
 
-INSERT INTO `admin` (`login`, `password`) VALUES
-('admin', 'admin');
+INSERT INTO `admin` (`login`, `password`)
+VALUES ('admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -45,21 +47,23 @@ INSERT INTO `admin` (`login`, `password`) VALUES
 -- Structure de la table `oeuvres`
 --
 
-CREATE TABLE `oeuvres` (
-  `code` varchar(50) NOT NULL,
-  `modele` varchar(50) NOT NULL,
-  `marque` varchar(50) NOT NULL,
-  `année` varchar(50) NOT NULL,
-  `photo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `oeuvres`
+(
+    `code`   varchar(50) NOT NULL,
+    `modele` varchar(50) NOT NULL,
+    `marque` varchar(50) NOT NULL,
+    `année`  varchar(50) NOT NULL,
+    `photo`  varchar(50) NOT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
 --
 -- Déchargement des données de la table `oeuvres`
 --
 
-INSERT INTO `oeuvres` (`code`, `modele`, `marque`, `année`, `photo`) VALUES
-('1', 'mustang', 'ford', '1967', 'car1.jpg'),
-('kikou', 'kikou', 'kikou', '22', 'car3.jpg');
+INSERT INTO `oeuvres` (`code`, `modele`, `marque`, `année`, `photo`)
+VALUES ('1', 'mustang', 'ford', '1967', 'car1.jpg'),
+       ('kikou', 'kikou', 'kikou', '22', 'car3.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,23 +71,25 @@ INSERT INTO `oeuvres` (`code`, `modele`, `marque`, `année`, `photo`) VALUES
 -- Structure de la table `visiteurs`
 --
 
-CREATE TABLE `visiteurs` (
-  `pseudo` varchar(50) NOT NULL,
-  `nom` varchar(50) NOT NULL,
-  `telephone` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `visiteurs`
+(
+    `pseudo`    varchar(50) NOT NULL,
+    `nom`       varchar(50) NOT NULL,
+    `telephone` varchar(50) NOT NULL,
+    `email`     varchar(50) NOT NULL,
+    `password`  varchar(50) NOT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
 --
 -- Déchargement des données de la table `visiteurs`
 --
 
-INSERT INTO `visiteurs` (`pseudo`, `nom`, `telephone`, `email`, `password`) VALUES
-('kikou', 'kiki', '95436700', 'kikou@gmail.com', '123'),
-('kik88', 'kiki', '88888', 'kiko@gmail.com', '123');
+INSERT INTO `visiteurs` (`pseudo`, `nom`, `telephone`, `email`, `password`)
+VALUES ('kikou', 'kiki', '95436700', 'kikou@gmail.com', '123'),
+       ('kik88', 'kiki', '88888', 'kiko@gmail.com', '123');
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
