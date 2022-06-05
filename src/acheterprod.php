@@ -3,9 +3,11 @@
     Author: Javed Ur Rehman
     Website: https://www.allphptricks.com
     */
-    if (!isset($_SESSION)) {
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        // session isn't started
         session_start();
     }
+
     include('db.php');
     $status = "";
     if (isset($_POST['code']) && $_POST['code'] != "") {

@@ -1,3 +1,12 @@
+
+<?php
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        // session isn't started
+        session_start();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -180,9 +189,6 @@
 
 
 <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
 
 
     function test_input($data)
@@ -215,9 +221,7 @@
         $loginmembre = test_input($_POST["login"]);
         $passwordmembre = $_POST["password"];
         $_SESSION["login"] = $loginmembre;
-
-
-        $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+        $connect = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
         $reqmembre = mysqli_query($connect, "SELECT * from visiteurs where pseudo='$loginmembre' and password='$passwordmembre'");
         $nbremembre = mysqli_num_rows($reqmembre);
         $ligne = mysqli_fetch_row($reqmembre);

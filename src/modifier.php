@@ -1,3 +1,9 @@
+<?php
+    if (session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        // session isn't started
+        session_start();
+    }
+?>
 <style>
     th {
         color: white;
@@ -182,16 +188,14 @@
         ?>
         <div class="edit2">
             <?php
-                if (!isset($_SESSION)) {
-                    session_start();
 
-                }
                 $prenom1 = $_SESSION["nomfour"];
 
             ?>
             <form method="post">
                 <?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+                    $conn = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
+
                     $reqaffich = mysqli_query($conn, "SELECT * FROM visiteurs") or die ("Erreur de selection");
 
                     echo "<table border=2px width=60%>  <th> </th> <th> Nom </th>  <th> Email </th> <th> Telephone </th> <th> Password </th>";
@@ -220,7 +224,7 @@
                 $ancienpass = $_POST["oldpasswd"];
 
                 // Stocker le mdp du membre dans la variable $passwordbda
-                $resultat = mysqli_query($conn, "SELECT * FROM he_client WHERE nom= '$prenom1'");
+                $resultat = mysqli_query($conn, "SELECT * FROM visiteurs WHERE nom= '$prenom1'");
 
                 $ligne = mysqli_fetch_row($resultat);
                 $password = $ligne[4];
@@ -268,7 +272,8 @@
             <input type="submit" name="deleteA" value="Delete">
             <?php
 
-                $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+                $connect = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
+
                 $reqlivre = mysqli_query($connect, "select * from visiteurs") or die("Erreur de requete SQL");
                 //3)Affichage des resultats
                 $stotal = 0;

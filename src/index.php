@@ -1,3 +1,20 @@
+<?php
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        // session isn't started
+        session_start();
+    }
+
+
+    $_SESSION['db'] = 'db';
+    $_SESSION['db_password'] = 'my_secret_password';
+    $_SESSION['db_username'] = 'root';
+    $_SESSION['db_name']= 'musee';
+    $conn = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
+
+
+    ?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -186,13 +203,6 @@
                 <h1><i> Bienvenue Sur Le Site de votre musée de voiture de collection </i></h1>
             </center>
 
-
-            <?php
-
-                $conn = mysqli_connect('localhost', 'root', 'my_secret_password', 'musee') or die ("Erreur de connexion");
-
-
-            ?>
 
 
     </body>

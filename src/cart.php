@@ -1,3 +1,11 @@
+
+<?php
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+        // session isn't started
+        session_start();
+    }
+?>
+
 <script type="text/javascript">
     function imprimer(page) {
         window.open(page, "Impression", "menubar=no, status=no, scrollbars=no, menubar=no, width=900, height=900");
@@ -6,9 +14,8 @@
 
 <?php
 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+
+
     $status = "";
     if (isset($_POST['action']) && $_POST['action'] == "remove") {
 
