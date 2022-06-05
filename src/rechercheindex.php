@@ -93,9 +93,7 @@
             color: #fff;
             opacity: 0.5;
             font-size: 15px;
-
         }
-
 
         .search-form {
             margin-top: 15px;
@@ -104,7 +102,7 @@
         }
 
         input[type=text] {
-            padding: 7px
+            padding: 7px;
             border: none;
             font-size: 15px;
             width: 350px;
@@ -173,7 +171,7 @@
 
         .button {
             border-radius: 4px;
-            background-color: #silver;
+            background-color: silver;
             border: none;
             color: black;
             text-align: center;
