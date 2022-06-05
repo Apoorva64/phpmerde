@@ -1,6 +1,5 @@
-
 <?php
-    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+    if (session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
         // session isn't started
         session_start();
     }
@@ -200,7 +199,8 @@
         return $data;
     }
 
-    $conn = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+    $conn = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
+
     if (isset($_POST['entrerA'])) {
         $login = test_input($_POST['loginA']);
         $password = $_POST['passwordA'];
