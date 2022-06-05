@@ -174,7 +174,7 @@
 
         </div>
         <?php
-            $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+            $connect = mysqli_connect($_SESSION['db'], $_SESSION['db_username'], $_SESSION['db_password'], 'musee') or die ("Erreur de connexion");
             if (isset($_POST["insert"])) {
                 $noclient = ($_POST['noclient']);
                 $nomfour = ($_POST['nomfour']);

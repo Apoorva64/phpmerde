@@ -188,7 +188,7 @@ session_start();
             $cout = ($_POST['cout']);
             $photo = ($_POST['uploaded_file']);
             $idmembre = ($_POST['idmembre']);
-            $insertion = mysqli_query($connect, "insert into oeuvres (modele, marque, année, photo, prix) VALUES
+            $insertion = mysqli_query($connect, "insert into oeuvres (modele, marque, annee, photo, prix) VALUES
      ('$nomprod','$preparation','$idrecettes','$photo','$cout')") or die ("Erreur d'insertion");
         }
 
