@@ -70,7 +70,7 @@
     <nav class="menu">
         <ul>
 
-            <li><a href="modifier.php?lien=modifier"> Edit </a></li>
+            <li><a href="modifierVoiture.php?lien=modifier"> Edit </a></li>
             <li><a href="nosproduits.php?lien=nosproduits"> Nos voitures </a></li>
             <li><a href="ajoutproduits.php?lien=ajoutproduits"> Ajout voiture </a></li>
             <li><a href="index.php?lien=Deconnexion"> Deconnexion </a></li>

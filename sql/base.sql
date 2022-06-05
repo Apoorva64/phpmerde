@@ -29,7 +29,10 @@ INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
 VALUES ('F40', 'Ferrari', '1987', 'car3.jpg',2500000);
 
 INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
-VALUES ('California GT', 'Ferrari', '19XX', 'car4.jpg',3000000);
+VALUES ('F50', 'Ferrari', '1997', 'car3.1.jpg',2500000);
+
+INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
+VALUES ('California GT', 'Ferrari', '1950', 'car4.jpg',3000000);
 
 INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
 VALUES ('911', 'Porsche', '1963', 'car5.jpg',500000);
@@ -51,7 +54,6 @@ VALUES ('DB5', 'Astom Martin', '1963', 'car10.jpg',7500000);
 
 INSERT INTO `oeuvres` (`modele`, `marque`, `annee`, `photo`, `prix`)
 VALUES ('Miura', 'Lamborghini', '1966', 'car11.jpg',900000);
-
 -- --------------------------------------------------------
 
 --
