@@ -69,7 +69,7 @@
     }
 
     input[type=text] {
-        padding: 7px
+        padding: 7px;
         border: none;
         font-size: 15px;
         width: 350px;
@@ -77,8 +77,8 @@
         white-space: nowrap;
 
     }
-
 </style>
+
 <body>
 
     <nav class="menu">
@@ -94,24 +94,24 @@
     </nav>
 </body>
 <?php
-    echo "   <h2>  Voila Nos voitures     </h2> ";
-    $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
+echo "   <h2>  Voila Nos voitures     </h2> ";
+$connect = mysqli_connect('localhost', 'root', '', 'musee') or die("Erreur de connexion");
 ?>
 <?php
-    echo "<form method='post'>";
+echo "<form method='post'>";
 
-    $req3recette = mysqli_query($connect, "select * from oeuvres limit 0,5") or die ("Erreur de selection");
+$req3recette = mysqli_query($connect, "select * from oeuvres limit 0,5") or die("Erreur de selection");
 
-    echo "<table border=4px width=50%> <th>Nom</th> <th>Description</th> <th>Année</th> <th>Photo</th>";
+echo "<table border=4px width=50%> <th>Nom</th> <th>Description</th> <th>Année</th> <th>Photo</th>";
 
-    while ($reqresultat = mysqli_fetch_row($req3recette)) {
-        $listenom = $reqresultat[1];
-        $listeingred = $reqresultat[2];
-        $listecout = $reqresultat[3];
-        $listephoto = $reqresultat[4];
+while ($reqresultat = mysqli_fetch_row($req3recette)) {
+    $listenom = $reqresultat[1];
+    $listeingred = $reqresultat[2];
+    $listecout = $reqresultat[3];
+    $listephoto = $reqresultat[4];
 
-        echo "<tr> <td>$listenom</td> <td>$listeingred</td> <td>$listecout</td> <td><img src='photo/$listephoto' style='height:100px;width:150px'></img></td></tr>";
-    }
-    echo "</table> </form>";
+    echo "<tr> <td>$listenom</td> <td>$listeingred</td> <td>$listecout</td> <td><img src='photo/$listephoto' style='height:100px;width:150px'></img></td></tr>";
+}
+echo "</table> </form>";
 
 ?>

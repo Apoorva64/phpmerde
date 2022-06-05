@@ -64,7 +64,7 @@
     }
 
     input[type=text] {
-        padding: 7px
+        padding: 7px;
         border: none;
         font-size: 15px;
         width: 350px;
@@ -89,8 +89,8 @@
         margin-top: 500px;
         margin-left: 700px;
     }
-
 </style>
+
 <body>
 
     <nav class="menu">
@@ -168,51 +168,50 @@
 
         </div>
         <?php
-            $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
-            if (isset($_POST["insert"])) {
-                $noclient = ($_POST['noclient']);
-                $nomfour = ($_POST['nomfour']);
-                $telephone = ($_POST['telephone']);
-                $email = ($_POST['email']);
-                $password = ($_POST['password']);
-                $insertion = mysqli_query($connect, "insert into visiteurs VALUES
-('$noclient','$nomfour','$telephone','$email','$password')") or die ("Erreur d'insertion");
-            }
+        $connect = mysqli_connect('localhost', 'root', '', 'musee') or die("Erreur de connexion");
+        if (isset($_POST["insert"])) {
+            $noclient = ($_POST['noclient']);
+            $nomfour = ($_POST['nomfour']);
+            $telephone = ($_POST['telephone']);
+            $email = ($_POST['email']);
+            $password = ($_POST['password']);
+            $insertion = mysqli_query($connect, "insert into visiteurs VALUES
+('$noclient','$nomfour','$telephone','$email','$password')") or die("Erreur d'insertion");
+        }
 
         ?>
         <div class="edit2">
             <?php
-                if (!isset($_SESSION)) {
-                    session_start();
-
-                }
-                $prenom1 = $_SESSION["nomfour"];
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $prenom1 = $_SESSION["nomfour"];
 
             ?>
             <form method="post">
                 <?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
-                    $reqaffich = mysqli_query($conn, "SELECT * FROM visiteurs") or die ("Erreur de selection");
+                $conn = mysqli_connect('localhost', 'root', '', 'musee') or die("Erreur de connexion");
+                $reqaffich = mysqli_query($conn, "SELECT * FROM visiteurs") or die("Erreur de selection");
 
-                    echo "<table border=2px width=60%>  <th> </th> <th> Nom </th>  <th> Email </th> <th> Telephone </th> <th> Password </th>";
+                echo "<table border=2px width=60%>  <th> </th> <th> Nom </th>  <th> Email </th> <th> Telephone </th> <th> Password </th>";
 
-                    while ($result = mysqli_fetch_row($reqaffich)) {
-                        $noclient = $result[0];
-                        $nomfour = $result[1];
-                        $email = $result [3];
-                        $telephone = $result[2];
-                        $password = $result[4];
+                while ($result = mysqli_fetch_row($reqaffich)) {
+                    $noclient = $result[0];
+                    $nomfour = $result[1];
+                    $email = $result[3];
+                    $telephone = $result[2];
+                    $password = $result[4];
 
-                        echo "<tr> <td> <input type='checkbox' name='checkbox[]' value='$noclient'> </td> <td>$nomfour</td> <td>$email</td> <td>$telephone</td>  <td>$password</td> </tr>";
+                    echo "<tr> <td> <input type='checkbox' name='checkbox[]' value='$noclient'> </td> <td>$nomfour</td> <td>$email</td> <td>$telephone</td>  <td>$password</td> </tr>";
+                }
+                echo "</table>";
+
+                if (isset($_POST['delete'])) {
+                    $check = $_POST['checkbox'];
+                    foreach ($check as $noclient) {
+                        mysqli_query($connect, "Delete from visiteurs Where pseudo =" . $noclient);
                     }
-                    echo "</table>";
-
-                    if (isset($_POST['delete'])) {
-                        $check = $_POST['checkbox'];
-                        foreach ($check as $noclient) {
-                            mysqli_query($connect, "Delete from visiteurs Where pseudo =" . $noclient);
-                        }
-                    }
+                }
 
                 ?>
             </form>
@@ -229,7 +228,7 @@
                     $newpass = $_POST["newpasswd"];
 
                     $select = mysqli_query($conn, "Update visiteurs set password='$newpass' where nom='$prenom1'")
-                    or die ("Erreur de modification");
+                        or die("Erreur de modification");
 
 
                     $nbre = mysqli_affected_rows($conn);
@@ -251,38 +250,38 @@
             <?php
 
 
-                if (isset($_POST["update"])) {
-                    $newemail = $_POST["newemail"];
-                    $selectt = mysqli_query($conn, "Update visiteurs set email='$newemail' where nom='$prenom1'")
-                    or die ("Erreur de modification");
-                    echo "modifier avec Succes";
-                }
+            if (isset($_POST["update"])) {
+                $newemail = $_POST["newemail"];
+                $selectt = mysqli_query($conn, "Update visiteurs set email='$newemail' where nom='$prenom1'")
+                    or die("Erreur de modification");
+                echo "modifier avec Succes";
+            }
             ?>
             <?php if (isset($_POST["update"])) {
                 $newtelephone = $_POST["newtel"];
                 $selecttt = mysqli_query($conn, "Update visiteurs set telephone='$newtelephone' where nom='$prenom1'")
-                or die ("Erreur de modification");
+                    or die("Erreur de modification");
                 echo "modifier avec Succes";
             } ?>
             <br><br>
             <input type="submit" name="deleteA" value="Delete">
             <?php
 
-                $connect = mysqli_connect('localhost', 'root', '', 'musee') or die ("Erreur de connexion");
-                $reqlivre = mysqli_query($connect, "select * from visiteurs") or die("Erreur de requete SQL");
-                //3)Affichage des resultats
-                $stotal = 0;
-                $tps = 0;
-                $tvq = 0;
-                $total = 0;
+            $connect = mysqli_connect('localhost', 'root', '', 'musee') or die("Erreur de connexion");
+            $reqlivre = mysqli_query($connect, "select * from visiteurs") or die("Erreur de requete SQL");
+            //3)Affichage des resultats
+            $stotal = 0;
+            $tps = 0;
+            $tvq = 0;
+            $total = 0;
 
-                /****************  Section Ouvrir le fichier a imprimer dans une nouvelle fenetre *******************/
-                if (isset($_POST['deleteA'])) {
-                    $check = $_POST['checkbox'];
-                    foreach ($check as $noclient) {
-                        mysqli_query($connect, "Delete from visiteurs Where nom =" . $noachat);
-                    }
+            /****************  Section Ouvrir le fichier a imprimer dans une nouvelle fenetre *******************/
+            if (isset($_POST['deleteA'])) {
+                $check = $_POST['checkbox'];
+                foreach ($check as $noclient) {
+                    mysqli_query($connect, "Delete from visiteurs Where nom =" . $noachat);
                 }
+            }
 
 
             ?>

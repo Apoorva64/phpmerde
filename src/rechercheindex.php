@@ -37,6 +37,7 @@
 </center>
 
 <script type="text/javascript" src="js/fonctionsJquery.js"></script>
+
 <body>
 
     <style>
@@ -104,7 +105,7 @@
         }
 
         input[type=text] {
-            padding: 7px
+            padding: 7px;
             border: none;
             font-size: 15px;
             width: 350px;
@@ -173,7 +174,7 @@
 
         .button {
             border-radius: 4px;
-            background-color: #silver;
+            background-color: silver;
             border: none;
             color: black;
             text-align: center;

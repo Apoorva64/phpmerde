@@ -1,225 +1,226 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Bienvenue sur la page d'acceuil </title>
-        <style>
 
-            body {
-                background-image: url("photo/back.jpg");
-                margin: 0;
-            }
+<head>
+    <title> Bienvenue sur la page d'acceuil </title>
+    <style>
+        body {
+            background-image: url("photo/back.jpg");
+            margin: 0;
+        }
 
-            .menu {
-                width: 100%;
-                height: 50px;
-                background: black;
-                overflow: auto;
+        .menu {
+            width: 100%;
+            height: 50px;
+            background: black;
+            overflow: auto;
 
-            }
+        }
 
-            .menu ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                line-height: 50px;
+        .menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            line-height: 50px;
 
-            }
+        }
 
-            .menu li {
-                float: left;
-            }
+        .menu li {
+            float: left;
+        }
 
-            .menu ul li a {
-                background: black;
-                text-decoration: none;
-                width: 130px;
-                display: block;
-                text-align: center;
-                color: #f2f2f2;
-                font-size: 15px;
-                font-family: sans-serif;
-                letter-spacing: 0.2px;
-
-
-            }
-
-            menu li a:hover {
-                color: #fff;
-                opacity: 0.5;
-                font-size: 15px;
-
-            }
+        .menu ul li a {
+            background: black;
+            text-decoration: none;
+            width: 130px;
+            display: block;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            font-family: sans-serif;
+            letter-spacing: 0.2px;
 
 
-            .search-form {
-                margin-top: 15px;
-                float: right;
-                margin-right: 460px;
-            }
+        }
+
+        menu li a:hover {
+            color: #fff;
+            opacity: 0.5;
+            font-size: 15px;
+
+        }
 
 
-            #first {
-                width: 300px;
-                padding: 20px;
-                position: absolute;
-                top: 58%;
-                left: 20%;
-                transform: translate(-50%, -50%);
-                background: silver;
-                text-align: center;
-                border-top-right-radius: 30px;
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-                border: solid grey;
-            }
-
-            #second {
-                width: 300px;
-                padding: 20px;
-                position: absolute;
-                top: 58%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: silver;
-                text-align: center;
-                border-top-right-radius: 30px;
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-                border: solid grey;
-            }
-
-            #third {
-                width: 300px;
-                padding: 20px;
-                position: absolute;
-                top: 58%;
-                left: 80%;
-                transform: translate(-50%, -50%);
-                background: silver;
-                text-align: center;
-                border-top-right-radius: 30px;
-                border-top-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-                border-bottom-left-radius: 30px;
-                border: solid grey;
-            }
-
-            img {
-                border-radius: 80px;
-                border: solid black;
-            }
-
-            .button {
-                border-radius: 4px;
-                background-color: #silver;
-                border: none;
-                color: black;
-                text-align: center;
-                font-size: 20px;
-                padding: 10px;
-                width: 200px;
-                transition: all 0.5s;
-                cursor: pointer;
-                margin-right: 50px;
-            }
-
-            .button span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s;
-            }
-
-            .button span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-            }
-
-            .button:hover span {
-                padding-right: 20px;
-            }
-
-            .button:hover span:after {
-                opacity: 1;
-                right: 0;
-            }
+        .search-form {
+            margin-top: 15px;
+            float: right;
+            margin-right: 460px;
+        }
 
 
-        </style>
-    <body>
-        <nav class="menu">
-            <ul>
-                <li><a href="index.php?lien=index"> Acceuil </a></li>
-                <li><a href="login.php?lien=login"> Login </a></li>
-                <li><a href="rechercheindex.php?lien=chercher"> Search </a></li>
+        #first {
+            width: 300px;
+            padding: 20px;
+            position: absolute;
+            top: 58%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            background: silver;
+            text-align: center;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: solid grey;
+        }
 
-            </ul>
+        #second {
+            width: 300px;
+            padding: 20px;
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: silver;
+            text-align: center;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: solid grey;
+        }
+
+        #third {
+            width: 300px;
+            padding: 20px;
+            position: absolute;
+            top: 58%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            background: silver;
+            text-align: center;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: solid grey;
+        }
+
+        img {
+            border-radius: 80px;
+            border: solid black;
+        }
+
+        .button {
+            border-radius: 4px;
+            background-color: silver;
+            border: none;
+            color: black;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin-right: 50px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 20px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.php?lien=index"> Acceuil </a></li>
+            <li><a href="login.php?lien=login"> Login </a></li>
+            <li><a href="rechercheindex.php?lien=chercher"> Search </a></li>
+
+        </ul>
 
 
-        </nav>
-        <form method="post">
-            <center><br><br><br><br>
-                <style> h1 {
-                        color: white;
+    </nav>
+    <form method="post">
+        <center><br><br><br><br>
+            <style>
+                h1 {
+                    color: white;
 
-                    }
+                }
 
-                    center {
-                        background-image: url("photo/background.jpg");
-                        /* Full height */
-                        height: 700px;
+                center {
+                    background-image: url("photo/background.jpg");
+                    /* Full height */
+                    height: 700px;
 
-                        /* Center and scale the image nicely */
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-
-
-                    }
-                </style>
-                <h1><i> Bienvenue Sur Le Site de votre musée de voiture de collection </i></h1>
-            </center>
+                    /* Center and scale the image nicely */
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
 
 
-            <?php
-
-                $conn = mysqli_connect('localhost', 'root', 'my_secret_password', 'musee') or die ("Erreur de connexion");
-
-
-            ?>
+                }
+            </style>
+            <h1><i> Bienvenue Sur Le Site de votre musée de voiture de collection </i></h1>
+        </center>
 
 
-    </body>
+        <?php
+
+        $conn = mysqli_connect('localhost', 'root', 'my_secret_password', 'musee') or die("Erreur de connexion");
+
+
+        ?>
+
+
+</body>
+
 </html>
 
 <?php
 
 
-    if (isset($_REQUEST["lien"])) {
-        $lien = $_REQUEST["lien"];
-        //selon le lien cliquer
-        switch ($lien) {
-            case"acceuil":
-                include("index.php");
-                break;
-            case"login":
-                include("login.php");
-                break;
-            case"nos auto":
-                include("nosauto.php");
-                break;
-            case"about":
-                include("about.php");
-                break;
-            case"contact":
-                include("contact.php");
-                break;
-        }
+if (isset($_REQUEST["lien"])) {
+    $lien = $_REQUEST["lien"];
+    //selon le lien cliquer
+    switch ($lien) {
+        case "acceuil":
+            include("index.php");
+            break;
+        case "login":
+            include("login.php");
+            break;
+        case "nos auto":
+            include("nosauto.php");
+            break;
+        case "about":
+            include("about.php");
+            break;
+        case "contact":
+            include("contact.php");
+            break;
     }
+}
 ?>

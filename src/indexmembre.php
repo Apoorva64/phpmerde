@@ -49,7 +49,7 @@
     }
 
     input[type=text] {
-        padding: 7px
+        padding: 7px;
         border: none;
         font-size: 15px;
         width: 350px;
@@ -57,8 +57,8 @@
         white-space: nowrap;
 
     }
-
 </style>
+
 <body>
 
     <nav class="menu">

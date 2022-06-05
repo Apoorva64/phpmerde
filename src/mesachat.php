@@ -53,7 +53,7 @@
     }
 
     input[type=text] {
-        padding: 7px
+        padding: 7px;
         border: none;
         font-size: 15px;
         width: 350px;
@@ -61,8 +61,8 @@
         white-space: nowrap;
 
     }
-
 </style>
+
 <body>
 
     <nav class="menu">
@@ -86,41 +86,39 @@
     }
 </script>
 <?php
-    if (isset($_POST["recherche"])) {
+if (isset($_POST["recherche"])) {
 
-        $search = $_POST["search"];
-        //1) Connexion deja etablie
-        //2) requete de selection de livres
-        $connect = mysqli_connect('localhost', 'root', '', 'LEVETOT') or die ("Erreur de connexion");
-        $reqlivre = mysqli_query($connect, "select * from he_achat where code like '$search%' or dateachat  like '$search%' or prixachat like '$search%'") or die("Erreur de requete SQL");
-        //3)Affichage des resultats
-        $stotal = 0;
-        $tps = 0;
-        $tvq = 0;
-        $total = 0;
-        echo "<table border='1'><tr> <th> No achat </th> <th> No client </th> <th> Code </th> <th> Date </th> <th> Quantite </th> <th> Prix </th>  </tr>";
+    $search = $_POST["search"];
+    //1) Connexion deja etablie
+    //2) requete de selection de livres
+    $connect = mysqli_connect('localhost', 'root', '', 'LEVETOT') or die("Erreur de connexion");
+    $reqlivre = mysqli_query($connect, "select * from he_achat where code like '$search%' or dateachat  like '$search%' or prixachat like '$search%'") or die("Erreur de requete SQL");
+    //3)Affichage des resultats
+    $stotal = 0;
+    $tps = 0;
+    $tvq = 0;
+    $total = 0;
+    echo "<table border='1'><tr> <th> No achat </th> <th> No client </th> <th> Code </th> <th> Date </th> <th> Quantite </th> <th> Prix </th>  </tr>";
 
-        while ($reqresultlivre = mysqli_fetch_row($reqlivre)) {
-            $noachat = $reqresultlivre[0];
-            $noclient = $reqresultlivre[1];
-            $code = $reqresultlivre[2];
-            $dateachat = $reqresultlivre[3];
-            $prixachat = $reqresultlivre[4];
-            $quantite = $reqresultlivre[5];
-            $stotal += $prixachat;
-            echo "<tr><td>$noachat </td><td>$noclient </td><td> $code</td>
+    while ($reqresultlivre = mysqli_fetch_row($reqlivre)) {
+        $noachat = $reqresultlivre[0];
+        $noclient = $reqresultlivre[1];
+        $code = $reqresultlivre[2];
+        $dateachat = $reqresultlivre[3];
+        $prixachat = $reqresultlivre[4];
+        $quantite = $reqresultlivre[5];
+        $stotal += $prixachat;
+        echo "<tr><td>$noachat </td><td>$noclient </td><td> $code</td>
 		<td> $dateachat </td> <td>$quantite</td>  <td>$prixachat</td> </tr>";
-        }
-        $tps = $stotal * 0.05;
-        $tvq = $stotal * 0.975;
-        $total = $stotal + $tps + $tvq;
-        echo "<tr><td colspan='5' align='right'>Sous Total: $stotal $ </td> </tr>
+    }
+    $tps = $stotal * 0.05;
+    $tvq = $stotal * 0.975;
+    $total = $stotal + $tps + $tvq;
+    echo "<tr><td colspan='5' align='right'>Sous Total: $stotal $ </td> </tr>
 		<tr><td colspan='5' align='right'>TPS: $tps $</td> </tr>
 		<tr><td colspan='5' align='right'>TVQ: $tvq $</td> </tr>
 		<tr><td colspan='5' align='right'>TOTAL: $total $</td> </tr>
 	</table>";
-        /****************  Section Ouvrir le fichier a imprimer dans une nouvelle fenetre *******************/
-
-
-    }
+    /****************  Section Ouvrir le fichier a imprimer dans une nouvelle fenetre *******************/
+}
 ?>
