@@ -100,7 +100,7 @@
 <?php
     echo "<form method='post'>";
 
-    $req3recette = mysqli_query($connect, "select * from oeuvres limit 0,5") or die ("Erreur de selection");
+    $req3recette = mysqli_query($connect, "SELECT * FROM oeuvres LIMIT 0,5") or die ("Erreur de selection");
 
     echo "<table border=4px width=50%> <th>Nom</th> <th>Description</th> <th>Prix</th> <th>Photo</th>";
 
@@ -152,7 +152,7 @@
                                 <td>No client</td>
                                 <td><input type="text" name="idmembre" value=""></td>
                             </tr>
-                            <nobr><br><br>
+                            <br><br><br>
                                 <input type="submit" name="insert" value="insert">
                                 <input type="submit" name="update" value="update">
                                 <input type="submit" name="delete" value="delete">
@@ -206,7 +206,7 @@
         if (isset($_POST['delete'])) {
             $check = $_POST['checkbox'];
             foreach ($check as $idrecettes) {
-                mysqli_query($connect, "Delete from oeuvres Where code =" . $listerecettes);
+                mysqli_query($connect, "Delete from oeuvres Where id =" . $listerecettes);
             }
         }
         echo "</table> </form> </div>";
